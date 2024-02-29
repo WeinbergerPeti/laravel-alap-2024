@@ -3,6 +3,9 @@ version: '3'
 networks:
   backend:
 
+volumes:
+  mysql:
+
 services:
 
 
@@ -42,7 +45,7 @@ services:
       - MYSQL_DATABASE=${DB_DATABASE}
       - TZ="${TZ}"
     volumes:
-      - "./docker/mysql/var/lib/mysql:/var/lib/mysql:rw"
+      - "mysql:/var/lib/mysql:rw"
     networks:
       - backend
 
